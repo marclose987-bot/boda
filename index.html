@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Imagen a Video al Hacer Clic</title>
+  <style>
+    .contenedor-media {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      max-width: 100%;
+    }
+
+    /* Ocultar iconos o barras por defecto en el video */
+    video {
+      display: none;
+      width: 100%;
+      height: auto;
+      outline: none;
+    }
+
+    /* Ajuste para que la imagen ocupe el tamaño deseado */
+    .imagen-portada {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor-media" onclick="reproducirVideo(this)">
+    <!-- 1. Tu imagen de portada -->
+    <img class="imagen-portada" src="img.png" alt="Haz clic para reproducir">
+    
+    <!-- 2. Tu video (sin el atributo 'controls' para que no muestre la barra ni el botón de play) -->
+    <video class="video-reproductor" src="video.mp4" playsinline></video>
+  </div>
+
+  <script>
+    function reproducirVideo(contenedor) {
+      const imagen = contenedor.querySelector('.imagen-portada');
+      const video = contenedor.querySelector('.video-reproductor');
+
+      // Ocultar la imagen y mostrar el video
+      imagen.style.display = 'none';
+      video.style.display = 'block';
+
+      // Reproducir el video
+      video.play();
+    }
+  </script>
+
+</body>
+</html>
